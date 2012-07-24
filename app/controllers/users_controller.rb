@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include SessionsHelper
 
   def new
     @user = User.new
@@ -8,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:message] = "You're in!  Aren't you lucky?!"
+      sign_in @user
       redirect_to root_path
     else
       flash[:error] = "Something went wrong.  Give it another try."

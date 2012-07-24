@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120724184945) do
+ActiveRecord::Schema.define(:version => 20120724213033) do
 
   create_table "links", :force => true do |t|
     t.string   "url"
@@ -32,5 +32,16 @@ ActiveRecord::Schema.define(:version => 20120724184945) do
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "votes", :force => true do |t|
+    t.boolean  "up"
+    t.boolean  "down"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "link_id"
+  end
+
+  add_index "votes", ["link_id"], :name => "index_votes_on_link_id"
 
 end

@@ -6,6 +6,7 @@ class Link < ActiveRecord::Base
 
   validate :less_than_fifteen_minutes_from_creation, :on => :update
 
+  has_many :votes
   belongs_to :user
 
   paginates_per 20

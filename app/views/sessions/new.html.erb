@@ -1,15 +1,17 @@
-<h1>Sign in</h1>
+<div class="hero-unit">
+  <h2>Sign in</h2>
 
-<%= form_tag sessions_path do %>
+  <%= form_tag sessions_path do %>
 
-<%= label_tag :email %>
-<%= text_field_tag :email, params[:email] %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email, params[:email] %>
 
-<%= label_tag :password %>
-<%= password_field_tag :password %>
-<div>
-<%= submit_tag "Sign in and stuff", class: "btn btn-primary" %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <div>
+  <%= submit_tag "Sign in and stuff", class: "btn btn-primary" %>
+  </div>
+  <% end %>
+
+  <p>Don't have an account? <%= link_to "Sign up, homie!", new_user_path %></p>
 </div>
-<% end %>
-
-<p>Don't have an account? <%= link_to "Sign up, homie!", new_user_path %></p>

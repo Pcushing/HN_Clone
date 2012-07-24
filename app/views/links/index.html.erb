@@ -1,10 +1,11 @@
 <div class="hero-unit">
-  <h2>Here's your damn links, nerd</h2>
+  <h2>Here're your links, nerd</h2>
 
   <ol>
     <% @links.each do |link| %>
       <li>
-        <% if signed_in? && current_user.id == link.user_id %> <%= link_to "Edit link", edit_link_path(link.id) %> <% end %> <%= link.url %>
+        <% if signed_in? && current_user.id == link.user_id %> <%= link_to "Edit link", edit_link_path(link.id) %> <% end %>
+          <strong><%= link_to link.title, link.url  %></strong> (<%= link.url.gsub(/^https?:\/\//, '').gsub(/www./,'') %>)
       </li>
     <% end %>
   </ol>

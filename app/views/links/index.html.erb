@@ -4,7 +4,7 @@
   <ol>
     <% @links.each do |link| %>
       <li>
-        <%= link.url %>
+        <% if signed_in? && current_user.id == link.user_id %> <%= link_to "Edit link", edit_link_path(link.id) %> <% end %> <%= link.url %>
       </li>
     <% end %>
   </ol>

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       if user && user.authenticate(params[:password])
         sign_in user
         flash[:message] = "Logged in!"
-        redirect_to root_path
+        redirect_back_or root_path
       else
         flash[:error] = "Login failed! Please try again!"
         render 'new'

@@ -29,6 +29,7 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Submit a link", new_link_path %></li>
+
               <% if signed_in? %>
                 <li><a href="#">You're signed in as <%= current_user.email %></a></li>
                 <li><%= link_to "Sign out", signout_path, method: "delete" %></li>

@@ -3,6 +3,9 @@ HnClone::Application.routes.draw do
   root :to => 'links#index'
 
   resources :links
+  resources :users
+  resources :sessions
+  match '/signout', to: 'sessions#destroy', via: :delete
 
 
   # The priority is based upon order of creation:

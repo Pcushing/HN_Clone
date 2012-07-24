@@ -1,1 +1,14 @@
-Index Page
+<div class="hero-unit">
+  <h2>Here's your damn links, nerd</h2>
+
+  <ol>
+    <% @links.each do |link| %>
+      <li>
+        <%= link.url %>
+      </li>
+    <% end %>
+  </ol>
+  <!-- <div class="pagination"> -->
+    <%= paginate @links %>
+  <!-- </div> -->
+</div>

@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem 'twitter-bootstrap-rails'
+gem 'kaminari'
+gem 'bcrypt-ruby'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

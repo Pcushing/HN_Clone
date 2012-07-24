@@ -11,12 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120723191024) do
+ActiveRecord::Schema.define(:version => 20120723233240) do
 
   create_table "links", :force => true do |t|
     t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "remember_token"
+  end
+
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

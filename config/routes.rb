@@ -2,10 +2,10 @@ HnClone::Application.routes.draw do
 
   root :to => 'links#index'
 
-  resources :links
-  resources :users
-  resources :sessions
+  resources :links, :users, :sessions, :votes
   match '/signout', to: 'sessions#destroy', via: :delete
+  match '/upvote', to: 'votes#create', :as => 'upvote'
+  match '/downvote', to: 'votes#create', :as => 'downvote'
 
 
   # The priority is based upon order of creation:

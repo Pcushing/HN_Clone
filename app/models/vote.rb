@@ -1,5 +1,5 @@
 class Vote < ActiveRecord::Base
-  attr_accessible :down, :up, :user_id, :link_id
+  attr_accessible :user_id, :link_id, :down, :up
   belongs_to :link
 
   validate :not_users_own_link, :on => :create

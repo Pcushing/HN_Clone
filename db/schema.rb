@@ -11,17 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120724213033) do
+ActiveRecord::Schema.define(:version => 20120725014338) do
 
   create_table "links", :force => true do |t|
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
     t.string   "title"
+    t.integer  "votes_count"
   end
 
   add_index "links", ["user_id"], :name => "index_links_on_user_id"
+  add_index "links", ["votes_count"], :name => "index_links_on_votes_count"
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -37,11 +39,13 @@ ActiveRecord::Schema.define(:version => 20120724213033) do
     t.boolean  "up"
     t.boolean  "down"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "link_id"
+    t.integer  "votes_count"
   end
 
   add_index "votes", ["link_id"], :name => "index_votes_on_link_id"
+  add_index "votes", ["votes_count"], :name => "index_votes_on_votes_count"
 
 end

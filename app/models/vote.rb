@@ -1,6 +1,6 @@
 class Vote < ActiveRecord::Base
   attr_accessible :user_id, :link_id, :down, :up
-  belongs_to :link
+  belongs_to :link, :counter_cache => true
 
   validate :not_users_own_link, :on => :create
   validate :unique_user_vote_on_link, :on => :create

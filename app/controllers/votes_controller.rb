@@ -7,14 +7,17 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(:up => params[:up],
                      :down => params[:down],
-                     :user_id => params[:user_id],
                      :link_id => params[:link_id])
-    if @vote.save
+
+    #This needs to be fixed.  Signed_in and save verifications are different
+    if signed_in?
+      @vote.user_id = current_user.id
+      @vote.save
       flash[:message] = "We can save! But we need to be able to just re-render the same page."
       redirect_to root_path
     else
-      flash[:error] = "You can't vote on your own links, or vote more than once. Sorry, g."
-      redirect_to root_path
+      flash[:error] = "You must sign in to vote."
+      redirect_to new_session_path
     end
   end
 

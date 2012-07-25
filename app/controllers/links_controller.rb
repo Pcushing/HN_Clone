@@ -11,7 +11,7 @@ class LinksController < ApplicationController
   end
 
   def index
-    @links = Link.order("created_at").page(params[:page])
+    @links = Link.order('votes_count DESC').page(params[:page])
   end
 
   # def show

@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-  include SessionsHelper
 
   def new
   end

@@ -1,5 +1,4 @@
 class LinksController < ApplicationController
-  include SessionsHelper
 
   def new
     if signed_in?

@@ -1,0 +1,17 @@
+<div class="span12">
+<% if flash[:message] %>
+  <div class="alert alert-success">
+    <!-- X button doesn't actually work right now -->
+    <a class="close" data-dismiss="alert" href="#">×</a>
+    <h4 class="alert-heading">Yahoo!</h4>
+      <%= flash[:message] %>
+  </div>
+<% end %>
+<% if flash[:error] %>
+  <div class="alert alert-error">
+    <!-- X button doesn't actually work right now -->
+    <a class="close" data-dismiss="alert" href="#">×</a>
+    <h4 class="alert-heading">Dang!</h4>
+      <%= flash[:error] %>
+  </div>
+<% end %>

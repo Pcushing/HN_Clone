@@ -28,7 +28,7 @@
           <%= link_to "HNClone", root_path, class: "brand" %>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Submit a link", new_link_path %></li>
+              <li><%= link_to "Add a link", new_link_path %></li>
 
               <% if signed_in? %>
                 <li><a href="#">You're signed in as <%= current_user.email %></a></li>
@@ -45,7 +45,8 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
+        <!-- Hiding this for now until we're sure we need it.
+		<div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
@@ -54,27 +55,12 @@
               <li><%= link_to "anywhere", "/path3"  %></li>
             </ul>
           </div><!--/.well -->
-        </div><!--/span-->
-
-        <div class="span9">
-        <% if flash[:message] %>
-          <div class="alert alert-success">
-            <!-- X button doesn't actually work right now -->
-            <a class="close" data-dismiss="alert" href="#">×</a>
-            <h4 class="alert-heading">Yahoo!</h4>
-              <%= flash[:message] %>
-          </div>
-        <% end %>
-        <% if flash[:error] %>
-          <div class="alert alert-error">
-            <!-- X button doesn't actually work right now -->
-            <a class="close" data-dismiss="alert" href="#">×</a>
-            <h4 class="alert-heading">Damn!</h4>
-              <%= flash[:error] %>
-          </div>
-        <% end %>
-          <%= yield %>
-        </div>
+        </div><!--/span--> 
+		<%= render :partial => 'layouts/errors' %>
+          
+		<%= yield %>
+        
+		</div>
       </div><!--/row-->
 
       <footer>

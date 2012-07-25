@@ -1,13 +1,21 @@
 <div class="hero-unit">
-  <h2>Here're your links, nerd</h2>
-
+  <!-- <h2>Nerd links!</h2> -->
+	<br />
   <ol>
     <% @links.each do |link| %>
-      <li class="entry">
-        <%= render :partial => 'voting', :locals => {:link => link} %>
-        <%= render :partial => 'link_and_title', :locals => {:link => link} %>
-        <%= render :partial => 'edit_link', :locals => {:link => link} %>
+      <li class="link">
+		<h2>
+			<!-- Need to figure out how to DRY up this locals thing -->
+		    <%= render :partial => 'vote', :locals => {:link => link} %>
+	        <%= render :partial => 'link_and_title', :locals => {:link => link} %>
+	        <%= render :partial => 'edit_link', :locals => {:link => link} %>
+		</h2>
       </li>
+	  <li>
+		<h6>
+			<%= render :partial => 'total_votes', :locals => {:link => link}%>
+	  	</h6>
+	</li>
     <% end %>
   </ol>
 

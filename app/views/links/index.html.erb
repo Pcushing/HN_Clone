@@ -3,7 +3,7 @@
 
   <ol>
     <% @links.each do |link| %>
-      <li>
+      <li class="entry">
         <%= render :partial => 'voting', :locals => {:link => link} %>
         <%= render :partial => 'link_and_title', :locals => {:link => link} %>
         <%= render :partial => 'edit_link', :locals => {:link => link} %>

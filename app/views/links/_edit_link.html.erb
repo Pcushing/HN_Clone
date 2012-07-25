@@ -1,3 +1,3 @@
-<% if signed_in? && current_user.id == link.user_id %>
-  <em><%= link_to "Edit link", edit_link_path(link.id) %></em>
+<% if signed_in? && current_user.id == link.user_id && less_than_fifteen_minutes_from_creation?(link) %>
+  <%= link_to "Edit link", edit_link_path(link.id), :class => "hover_hidden pull-right" %>
 <% end %>

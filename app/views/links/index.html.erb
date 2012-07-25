@@ -4,12 +4,9 @@
   <ol>
     <% @links.each do |link| %>
       <li>
-        | Total: <%= link.votes.count %> |<%= link_to upvote_path(:up => true, :link_id => link.id) do %>
-        <i class='icon-thumbs-up'></i><% end %>
-        <strong><%= link_to link.title, link.url  %></strong> (<%= link.url.gsub(/^https?:\/\//, '').gsub(/www./,'') %>)
-        <% if signed_in? && current_user.id == link.user_id %>
-          <em><%= link_to "Edit link", edit_link_path(link.id) %></em>
-        <% end %>
+        <%= render :partial => 'voting', :locals => {:link => link} %>
+        <%= render :partial => 'link_and_title', :locals => {:link => link} %>
+        <%= render :partial => 'edit_link', :locals => {:link => link} %>
       </li>
     <% end %>
   </ol>

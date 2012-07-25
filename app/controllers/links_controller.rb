@@ -5,7 +5,8 @@ class LinksController < ApplicationController
       @link = Link.new
     else
       flash[:error] = "You must sign in to post links"
-      redirect_to '/sessions/new'
+      session[:intended_destination] = '/links/new'
+      redirect_to new_session_path
     end
   end
 

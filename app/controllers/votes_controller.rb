@@ -16,8 +16,8 @@ class VotesController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = "You must sign in to vote."
+      # session[:intended_destination] = "this is the cookie i'm looking for"
       redirect_to new_session_path
     end
   end
-
 end

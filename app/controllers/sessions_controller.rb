@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+
   end
 
   def create
@@ -8,7 +9,8 @@ class SessionsController < ApplicationController
       if user && user.authenticate(params[:password])
         sign_in user
         flash[:message] = "Logged in!"
-        redirect_back_or root_path
+        redirect_to (session[:intended_destination] ? session[:intended_destination] : root_path)
+        session[:intended_destination] = nil
       else
         flash[:error] = "Login failed! Please try again!"
         render 'new'

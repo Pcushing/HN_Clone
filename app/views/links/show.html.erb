@@ -1,4 +1,5 @@
-<h2>
+<div class="hero-unit">
+	<h2>
   <!-- Need to figure out how to DRY up this locals thing -->
     <%= render :partial => 'vote', :locals => {:link => @link} %>
     <%= render :partial => 'link_and_title', :locals => {:link => @link} %>
@@ -10,4 +11,5 @@
 
 <%= render :partial => 'comment_form', :locals => {:commentable => @commentable, :comment => @comment } %>
 <%= render :partial => 'commentable_comments', :locals => {:commentable => @commentable, :comments => @comments } %>
+</div>
 

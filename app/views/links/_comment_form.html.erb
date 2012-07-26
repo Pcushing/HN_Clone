@@ -12,9 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_area :body, rows: 8 %>
+    <%= f.text_area :body, :rows => 8, :cols => 30, :placeholder => "Be nice." %>
   </div>
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+

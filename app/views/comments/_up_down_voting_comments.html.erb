@@ -1,0 +1,6 @@
+<%= link_to upvote_path(:up => true, :votable_id => comment.id, :votable_type => "Comment") do %>
+  <i class='icon-thumbs-up'></i>
+<% end %>
+<%= link_to downvote_path(:down => true, :votable_id => comment.id, :votable_type => "Comment") do %>
+  <i class='icon-thumbs-down'></i>
+<% end %>

@@ -1,0 +1,12 @@
+<%= comment.user.email %>  <%= ((Time.now - comment.created_at)/3600).to_i %> hours ago | <%= link_to "link", comment_path(comment.id) %><br />
+<p><%= comment.body %></p>
+<%= link_to "reply", comment_path(comment.id) %>
+
+<% comment.comments.each do |response| %>
+  <div class="responses">
+    <%= render :partial => 'comments/up_down_voting_comments', :locals => {:comment => response} %>
+    <%= render :partial => 'comments/responses', :locals => {:comment => response} %>
+  </div>
+<% end %>
+
+

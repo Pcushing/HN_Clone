@@ -19,6 +19,7 @@ class LinksController < ApplicationController
     @commentable = @link
     @comments = @commentable.comments
     @comment = Comment.new
+    session[:source_link] = request.fullpath
   end
 
   def create

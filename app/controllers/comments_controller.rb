@@ -25,7 +25,8 @@ class CommentsController < ApplicationController
 
       if @comment.save
         flash[:message] = "Look at you just adding comments like a boss."
-        redirect_to [@commentable]
+        redirect_to session[:source_link]
+        session[:source_link] = nil
       else
         render [@commentable]
       end

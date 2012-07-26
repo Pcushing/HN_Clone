@@ -1,6 +1,7 @@
-<div class="comment">
-  <%= simple_format @comment.body %>
-</div>
+<div class="hero-unit">
+  <p><%= @comment.body %></p>
 
 <%= render :partial => 'links/comment_form', :locals => {:commentable => @commentable, :comment => @new_comment } %>
 <%= render :partial => 'links/commentable_comments', :locals => {:commentable => @commentable, :comments => @comments } %>
+
+</div>

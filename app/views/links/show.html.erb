@@ -1,0 +1,13 @@
+<h2>
+  <!-- Need to figure out how to DRY up this locals thing -->
+    <%= render :partial => 'vote', :locals => {:link => @link} %>
+    <%= render :partial => 'link_and_title', :locals => {:link => @link} %>
+    <%= render :partial => 'edit_link', :locals => {:link => @link} %>
+</h2>
+<h6>
+  <%= render :partial => 'link_data', :locals => {:link => @link}%>
+</h6>
+
+<%= render :partial => 'comment_form', :locals => {:commentable => @commentable, :comment => @comment } %>
+<%= render :partial => 'commentable_comments', :locals => {:commentable => @commentable, :comments => @comments } %>
+

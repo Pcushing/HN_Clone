@@ -1,0 +1,4 @@
+<%= link.votes.count %> points
+By: <%= link.user.email %>
+5 hours ago
+| <%= link_to "#{link.comments.count} comments", link_path(link.id)  %>

@@ -2,7 +2,15 @@ HnClone::Application.routes.draw do
 
   root :to => 'links#index'
 
-  resources :links, :users, :sessions, :votes
+  resources :links do
+    resources :comments
+  end
+  resources :comments do
+    resources :comments
+  end
+  #can we do comments within comments like above?
+
+  resources :users, :sessions, :votes
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/upvote', to: 'votes#create', :as => 'upvote'
   match '/downvote', to: 'votes#create', :as => 'downvote'

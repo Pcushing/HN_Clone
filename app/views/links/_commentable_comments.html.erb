@@ -1,0 +1,8 @@
+<div id="comments">
+  <% comments.each do |comment| %>
+    <div class="comment">
+      <%= simple_format comment.body %>
+      <%= link_to "reply", comment_path(comment.id) %>
+    </div>
+  <% end %>
+</div>

@@ -14,9 +14,12 @@ class LinksController < ApplicationController
     @links = Link.order('votes_count DESC').page(params[:page])
   end
 
-  # def show
-  #   @link = Link.find(params[:id]
-  # end
+  def show
+    @link = Link.find(params[:id])
+    @commentable = @link
+    @comments = @commentable.comments
+    @comment = Comment.new
+  end
 
   def create
     @link = Link.new(params[:link])

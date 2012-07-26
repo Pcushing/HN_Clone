@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120725230547) do
-
-  create_table "comment_responses", :force => true do |t|
-    t.integer  "orig_comment_id"
-    t.integer  "response_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120726220651) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -27,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120725230547) do
     t.string   "commentable_type"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "votes_count"
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
@@ -57,13 +51,14 @@ ActiveRecord::Schema.define(:version => 20120725230547) do
     t.boolean  "up"
     t.boolean  "down"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "link_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "votable_id"
     t.integer  "votes_count"
+    t.string   "votable_type"
   end
 
-  add_index "votes", ["link_id"], :name => "index_votes_on_link_id"
+  add_index "votes", ["votable_id"], :name => "index_votes_on_link_id"
   add_index "votes", ["votes_count"], :name => "index_votes_on_votes_count"
 
 end

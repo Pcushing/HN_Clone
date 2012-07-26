@@ -1,4 +1,4 @@
 <%= link.votes.count %> points
 | By: <%= link.user.email %>
-| <%= ((Time.now - link.created_at)/3600).to_i %> hours ago
+| <%= ((Time.now - link.created_at)/3600).to_i %> hours ago    <!-- extract into helper method -->
 | <%= link_to "#{link.comments.count} comments", link_path(link.id)  %>

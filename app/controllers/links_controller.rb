@@ -27,7 +27,7 @@ class LinksController < ApplicationController
 
     if @link.save
       flash[:message] = "You rock!  You made a link."
-      redirect_to root_path
+      redirect_to link_path(@link.id)
     else
       flash[:error] = "You messed up.  Try again."
       render new_link_path

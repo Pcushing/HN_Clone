@@ -7,7 +7,7 @@ class Link < ActiveRecord::Base
 
   validate :less_than_fifteen_minutes_from_creation, :on => :update
 
-  has_many :votes
+  has_many :votes, :as => :votable
   has_many :comments, :as => :commentable
   belongs_to :user
   

@@ -1,8 +1,25 @@
 <div id="comments">
   <% comments.each do |comment| %>
     <div class="comment">
-      <p><%= comment.body %></p> by <%= comment.user.email %><br />
+      <%= link_to upvote_path(:up => true, :link_id => comment.id) do %>
+      <i class='icon-thumbs-up'></i><% end %>
+      <%= link_to downvote_path(:down => true, :link_id => comment.id) do %>
+      <i class='icon-thumbs-down'></i><% end %>
+      
+      <%= comment.user.email %>  <%= ((Time.now - comment.created_at)/3600).to_i %> hours ago | <%= link_to "link", comment_path(comment.id) %><br />
+      <p><%= comment.body %></p>
       <%= link_to "reply", comment_path(comment.id) %>
+
+      <% if !comment.comments.nil? %>
+        <% comment.comments.each do |response| %>
+          <div class="responses">
+            <%= response.user.email %>  <%= ((Time.now - response.created_at)/3600).to_i %> hours ago | <%= link_to "link", comment_path(response.id) %>
+            <p><%= response.body %><br /></p>
+            <%= link_to "reply", comment_path(response.id) %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
 </div>
+

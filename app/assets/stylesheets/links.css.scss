@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.icon-bar {
+	color: #000000;
+}
+
 .hover_hidden {
-  display: none;
+  	display: none;
 }
 
 .link:hover {
@@ -15,10 +19,11 @@
 .hero-unit {
     padding: 18px 60px;
     h6 {
-        margin: 0px 00px 0px 30px;
+        margin: 0px 0px 0px 30px;
     }
     ol {
         list-style: none;
+		margin: 0;
     }
 }
 
@@ -35,4 +40,16 @@ footer {
 input, textarea {
 	margin-top: 3%;
 	width: 70%;
+}
+
+h3 {
+	color: gray;
+}
+
+h6 a {
+	color: gray;
+}
+
+h3 a {
+	color: #000000;
 }

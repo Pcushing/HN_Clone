@@ -1,2 +1,2 @@
-<%= link_to upvote_path(:up => true, :link_id => link.id) do %>
+<%= link_to upvote_path(:up => true, :votable_id => link.id, :votable_type => 'Link') do %>
 <i class='icon-thumbs-up'></i><% end %>

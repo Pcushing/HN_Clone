@@ -1,0 +1,9 @@
+<div id="comments">
+  <% comments.each do |comment| %>
+    <div class="comment">
+      <%= render :partial => 'comments/up_down_voting_comments', :locals => {:comment => comment} %>
+      <%= render :partial => 'comments/responses', :locals => {:comment => comment} %>
+    </div>
+  <% end %>
+</div>
+

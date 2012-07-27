@@ -41,6 +41,7 @@ gem 'jquery-rails'
 group :development do
   gem 'sqlite3'
   gem 'quiet_assets'
+  gem 'jazz_hands'
 end
 
 group :test do

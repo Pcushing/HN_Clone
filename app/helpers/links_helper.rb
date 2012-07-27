@@ -4,9 +4,7 @@ module LinksHelper
   end
 
   def get_responses_count(commentable)
-    commentable.comments.count + commentable.comments.each do |response|
-        get_responses_count(response).sum unless response.comments.empty?
-      end
+      commentable.comments.count + commentable.comments.collect { |response| get_responses_count(response) }.sum
   end
 end
 

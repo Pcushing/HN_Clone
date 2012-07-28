@@ -21,8 +21,8 @@ def get_titles_and_urls(url)
   content = Nokogiri::HTML(open(url))
   content.css('td.title a').each do |entry|
     pair = {}
-    pair["url"] = entry.to_s[9..(entry.to_s.index('">')-2)].force_encoding('UTF-8')
-    pair["title"] =  entry.to_s[(entry.to_s.index(">")+1)..(entry.to_s.index("<")-5)].force_encoding('UTF-8')
+    pair["url"] = entry.to_s[9..(entry.to_s.index('">')-2)]
+    pair["title"] =  entry.to_s[(entry.to_s.index(">")+1)..(entry.to_s.index("<")-5)]
     titles_and_urls << pair
   end
   titles_and_urls.pop

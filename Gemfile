@@ -6,6 +6,8 @@ gem 'kaminari'
 gem 'bcrypt-ruby'
 gem 'jquery-rails'
 gem 'thin'
+gem 'nokogiri'
+
 
 
 # Gems used only for assets and not required
@@ -20,7 +22,6 @@ group :development do
   gem 'sqlite3'
   gem 'quiet_assets'
   gem 'jazz_hands'
-  gem 'nokogiri'
 end
 
 group :test do

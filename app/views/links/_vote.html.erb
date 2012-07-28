@@ -1,5 +1,5 @@
-<% if link.votes.select {|vote| vote if (vote.user_id == current_user.id) }.empty? %>
+<% #if link.votes.select {|vote| vote if (vote.user_id == current_user.id) }.empty? %>
   <%= link_to upvote_path(:up => true, :votable_id => link.id, :votable_type => 'Link') do %>
     <i class='icon-thumbs-up'></i>
   <% end %>
-<% end %>
+<% #end %>
